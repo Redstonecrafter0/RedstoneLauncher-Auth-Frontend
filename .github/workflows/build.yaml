@@ -33,7 +33,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: dist
-      - run: 'chmod +x dist/*linux*/RedstoneLauncher-MSA-Login'
+      - run: 'chmod +x dist/artifact/*linux*/RedstoneLauncher-MSA-Login'
       - run: 'tar -czf RedstoneLauncher-MSA-Login-linux-x64.tar.gz .'
         working-directory: dist/artifact/RedstoneLauncher-MSA-Login-linux-x64
       - run: 'tar -czf RedstoneLauncher-MSA-Login-win32-x64.tar.gz .'
