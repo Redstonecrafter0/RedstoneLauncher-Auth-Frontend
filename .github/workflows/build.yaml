@@ -24,7 +24,21 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: out/
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs:
-#      - build
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          path: dist
+      - run: 'chmod +x dist/*linux*/RedstoneLauncher-MSA-Login'
+      - run: 'tar -czf RedstoneLauncher-MSA-Login-linux-x64.tar.gz .'
+        working-directory: dist/RedstoneLauncher-MSA-Login-linux-x64
+      - run: 'tar -czf RedstoneLauncher-MSA-Login-win32-x64.tar.gz .'
+        working-directory: dist/RedstoneLauncher-MSA-Login-win32-x64
+      - run: |
+          hub release create -a dist/RedstoneLauncher-MSA-Login-linux-x64/RedstoneLauncher-MSA-Login-linux-x64.tar.gz -a dist/RedstoneLauncher-MSA-Login-win32-x64/RedstoneLauncher-MSA-Login-win32-x64.tar.gz $(node --eval="process.stdout.write(require('./package.json').version)")
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
