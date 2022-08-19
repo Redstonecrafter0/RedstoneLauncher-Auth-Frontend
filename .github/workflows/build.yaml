@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-2022
+      fail-fast: true
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.17'
+      - run: 'npm ci'
+      - run: 'npm run package'
+      - uses: actions/upload-artifact@v3
+        with:
+          path: out/
+#  deploy:
+#    runs-on: ubuntu-latest
+#    needs:
+#      - build

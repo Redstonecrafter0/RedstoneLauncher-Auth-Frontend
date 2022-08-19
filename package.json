@@ -1,0 +1,38 @@
+{
+  "name": "redstonelauncher-msa-login",
+  "productName": "RedstoneLauncher-MSA-Login",
+  "version": "0.1.0",
+  "description": "A MSA Frontend for the RedstoneLauncher",
+  "main": "src/index.js",
+  "repository": "https://github.com/Redstonecrafter0/RedstoneLauncher-MSA-Login",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Redstonecrafter0",
+    "email": "54239558+Redstonecrafter0@users.noreply.github.com"
+  },
+  "license": "agpl-3.0",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "ignore": [
+          ".idea",
+          ".github",
+          ".gitignore",
+          "README.md"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "shell": "^0.9.4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "electron": "20.0.3"
+  }
+}
