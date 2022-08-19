@@ -39,6 +39,6 @@ jobs:
       - run: 'tar -czf RedstoneLauncher-MSA-Login-win32-x64.tar.gz RedstoneLauncher-MSA-Login-win32-x64'
         working-directory: dist/artifact
       - run: |
-          hub release create -a dist/artifact/RedstoneLauncher-MSA-Login-linux-x64.tar.gz -a dist/artifact/RedstoneLauncher-MSA-Login-win32-x64.tar.gz $(node --eval="process.stdout.write(require('./package.json').version)")
+          gh release create $(node --eval="process.stdout.write(require('./package.json').version)") dist/artifact/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
