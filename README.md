@@ -1,3 +1,3 @@
-# RedstoneLauncher-MSA-Frontend
+# RedstoneLauncher-Auth-Frontend
 
-A MSA Frontend for the RedstoneLauncher.
+A MSA and GitHub Auth Frontend for the RedstoneLauncher.

@@ -33,10 +33,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           path: dist
-      - run: 'chmod +x dist/artifact/*linux*/RedstoneLauncher-MSA-Login'
-      - run: 'tar -czf RedstoneLauncher-MSA-Login-linux-x64.tar.gz RedstoneLauncher-MSA-Login-linux-x64'
+      - run: 'chmod +x dist/artifact/*linux*/RedstoneLauncher-Auth-Login'
+      - run: 'tar -czf RedstoneLauncher-Auth-Login-linux-x64.tar.gz RedstoneLauncher-Auth-Login-linux-x64'
         working-directory: dist/artifact
-      - run: 'tar -czf RedstoneLauncher-MSA-Login-win32-x64.tar.gz RedstoneLauncher-MSA-Login-win32-x64'
+      - run: 'tar -czf RedstoneLauncher-Auth-Login-win32-x64.tar.gz RedstoneLauncher-Auth-Login-win32-x64'
         working-directory: dist/artifact
       - run: |
           gh release create $(node --eval="process.stdout.write(require('./package.json').version)") dist/artifact/*.tar.gz
