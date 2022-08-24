@@ -2,4 +2,3 @@ node_modules
 .idea
 out
 *.iml
-package-lock.json
